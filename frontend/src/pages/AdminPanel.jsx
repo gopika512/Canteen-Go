@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
-import { Html5QrcodeScanner } from 'html5-qrcode';
+import { Scanner } from '@yudiel/react-qr-scanner';
 import api from '../services/api';
 
 const STATUS_BADGE = {
@@ -64,30 +64,6 @@ function AdminPanel() {
   const [verifyResult, setVerifyResult] = useState(null); // {ok: bool, message, order?}
   const [verifying,    setVerifying]    = useState(false);
   const [isScanning,   setIsScanning]   = useState(false);
-
-  useEffect(() => {
-    if (isScanning) {
-      const scanner = new Html5QrcodeScanner(
-        "admin-qr-reader",
-        { fps: 10, qrbox: { width: 250, height: 250 } },
-        false
-      );
-
-      scanner.render(
-        (decodedText) => {
-          scanner.clear();
-          setIsScanning(false);
-          setQrInput(decodedText);
-          handleDirectScan(decodedText);
-        },
-        () => { /* ignore frame errors */ }
-      );
-
-      return () => {
-        scanner.clear().catch(e => console.error("Failed to clear scanner", e));
-      };
-    }
-  }, [isScanning]);
 
   const handleDirectScan = async (scannedUuid) => {
     setVerifying(true);
@@ -270,7 +246,19 @@ function AdminPanel() {
             {/* Scanner Container */}
             {isScanning && (
               <div className="mt-4 rounded-xl overflow-hidden border border-gray-200">
-                <div id="admin-qr-reader" className="w-full max-w-sm mx-auto"></div>
+                <div className="w-full max-w-sm mx-auto">
+                  <Scanner
+                    onScan={(result) => {
+                      if (result && result.length > 0) {
+                        setIsScanning(false);
+                        const text = result[0].rawValue;
+                        setQrInput(text);
+                        handleDirectScan(text);
+                      }
+                    }}
+                    onError={(error) => console.error(error)}
+                  />
+                </div>
               </div>
             )}
 
