@@ -76,12 +76,6 @@ function Login() {
           </button>
         </form>
 
-        {/* Demo credentials hint */}
-        <div className="mt-5 bg-orange-50 border border-orange-100 rounded-xl p-4 text-xs text-gray-500">
-          <p className="font-semibold text-gray-600 mb-1">🔑 Demo Credentials</p>
-          <p>Admin: <span className="font-mono text-gray-700">admin@canteen.com</span> / <span className="font-mono text-gray-700">admin123</span></p>
-          <p className="mt-0.5">Student: Register a new account below</p>
-        </div>
 
         <p className="text-center text-sm text-gray-500 mt-5">
           New student?{' '}
