@@ -4,7 +4,8 @@ motor
 pymongo
 python-dotenv
 pyjwt
-passlib[bcrypt]
+passlib
+bcrypt==4.0.1
 razorpay
 email-validator
 python-multipart
