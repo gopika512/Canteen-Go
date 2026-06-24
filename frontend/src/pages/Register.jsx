@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../services/api';
 
 function Register() {
   const [email, setEmail]     = useState('');
@@ -17,7 +17,7 @@ function Register() {
     if (password.length < 6)  { setError("Password must be at least 6 characters"); return; }
     setLoading(true);
     try {
-      await axios.post('http://localhost:8000/api/auth/signup', {
+      await api.post('/auth/signup', {
         email,
         password,
         role: 'student',

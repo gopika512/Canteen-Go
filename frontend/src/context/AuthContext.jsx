@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 
 export const AuthContext = createContext();
 
@@ -22,8 +22,8 @@ export const AuthProvider = ({ children }) => {
     formData.append('username', email);   // FastAPI OAuth2 calls the field 'username'
     formData.append('password', password);
 
-    const response = await axios.post(
-      'http://localhost:8000/api/auth/login',
+    const response = await api.post(
+      '/auth/login',
       formData,
       { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
     );
