@@ -1,0 +1,36 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafb;
+}
+
+/* Legacy button & card classes — kept for backward compatibility */
+button { cursor: pointer; border: none; font-weight: 500; transition: all 0.2s; }
+.btn-primary  { background: #f97316; color: white; padding: 8px 16px; border-radius: 8px; }
+.btn-primary:hover  { background: #ea580c; }
+.btn-success  { background: #22c55e; color: white; padding: 8px 16px; border-radius: 8px; }
+.btn-success:hover  { background: #16a34a; }
+.btn-warning  { background: #f59e0b; color: #1f2937; padding: 8px 16px; border-radius: 8px; }
+.btn-warning:hover  { background: #d97706; }
+.card { background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #f3f4f6; padding: 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+/* Status card top-borders (used by TokenCard legacy) */
+.card.pending    { border-top: 4px solid #fbbf24; }
+.card.preparing  { border-top: 4px solid #3b82f6; background: #eff6ff; }
+.card.ready      { border-top: 4px solid #22c55e; background: #f0fdf4; }
+
+/* Custom slide-up and fade-in animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-slideUp { animation: slideUp 0.3s ease-out both; }
+.animate-fadeIn  { animation: fadeIn  0.25s ease-out both; }
