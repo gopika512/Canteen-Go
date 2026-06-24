@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
+import { Html5QrcodeScanner } from 'html5-qrcode';
 import api from '../services/api';
 
 const STATUS_BADGE = {
@@ -62,6 +63,50 @@ function AdminPanel() {
   const [qrInput,      setQrInput]      = useState('');   // UUID typed / pasted by admin
   const [verifyResult, setVerifyResult] = useState(null); // {ok: bool, message, order?}
   const [verifying,    setVerifying]    = useState(false);
+  const [isScanning,   setIsScanning]   = useState(false);
+
+  useEffect(() => {
+    if (isScanning) {
+      const scanner = new Html5QrcodeScanner(
+        "admin-qr-reader",
+        { fps: 10, qrbox: { width: 250, height: 250 } },
+        false
+      );
+
+      scanner.render(
+        (decodedText) => {
+          scanner.clear();
+          setIsScanning(false);
+          setQrInput(decodedText);
+          handleDirectScan(decodedText);
+        },
+        () => { /* ignore frame errors */ }
+      );
+
+      return () => {
+        scanner.clear().catch(e => console.error("Failed to clear scanner", e));
+      };
+    }
+  }, [isScanning]);
+
+  const handleDirectScan = async (scannedUuid) => {
+    setVerifying(true);
+    setVerifyResult(null);
+    try {
+      const res = await api.post(`/orders/verify-qr?pickup_qr_uuid=${encodeURIComponent(scannedUuid.trim())}`);
+      setVerifyResult({ ok: true, data: res.data });
+      const updated = await api.get('/orders/active');
+      setOrders(updated.data);
+      const statsRes = await api.get('/orders/analytics');
+      setStats(statsRes.data);
+      setQrInput('');
+    } catch (err) {
+      const detail = err.response?.data?.detail || 'Verification failed';
+      setVerifyResult({ ok: false, message: detail });
+    } finally {
+      setVerifying(false);
+    }
+  };
 
   const verifyQr = async () => {
     if (!qrInput.trim()) return;
@@ -214,7 +259,20 @@ function AdminPanel() {
               >
                 {verifying ? '⏳…' : '✓ Verify'}
               </button>
+              <button
+                onClick={() => setIsScanning(!isScanning)}
+                className={`${isScanning ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'} px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors flex-shrink-0`}
+              >
+                {isScanning ? 'Cancel Scan' : '📷 Camera'}
+              </button>
             </div>
+
+            {/* Scanner Container */}
+            {isScanning && (
+              <div className="mt-4 rounded-xl overflow-hidden border border-gray-200">
+                <div id="admin-qr-reader" className="w-full max-w-sm mx-auto"></div>
+              </div>
+            )}
 
             {/* Verification result */}
             {verifyResult && (
