@@ -1,28 +1,8 @@
-from passlib.context import CryptContext
-import jwt
-from datetime import datetime, timedelta
-from app.config import settings
-
-# Password-ஐ Hashing செய்ய bcrypt வழிமுறையை பயன்படுத்துகிறோம்
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-def get_password_hash(password: str) -> str:
-    """சாதாரண பாஸ்வேர்டை Hash ஆக மாற்றும் function"""
-    return pwd_context.hash(password)
-
-def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """யூசர் கொடுக்கும் பாஸ்வேர்டும், Database-ல் உள்ள Hash-ம் ஒன்றாக உள்ளதா என சரிபார்க்கும்"""
-    return pwd_context.verify(plain_password, hashed_password)
-
-def create_access_token(data: dict) -> str:
-    """Login செய்த யூசருக்கு JWT Access Token உருவாக்கும் function"""
-    to_encode = data.copy()
-    
-    # Token எப்போது Expire ஆக வேண்டும் என செட் செய்கிறோம்
-    expire = datetime.utcnow() + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
-    to_encode.update({"exp": expire})
-    
-    # Token-ஐ Secret Key வைத்து என்கிரிப்ட் செய்கிறோம்
-    encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
-    
-    return encoded_jwt
+fastapi
+uvicorn[standard]
+motor
+pymongo
+python-dotenv
+pyjwt
+passlib[bcrypt]
+razorpay
