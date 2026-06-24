@@ -6,6 +6,19 @@ from app.utils.security import get_password_hash
 
 app = FastAPI(title="Smart Canteen API", version="2.0")
 
+from fastapi.responses import JSONResponse
+import traceback
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    traceback.print_exc()
+    origin = request.headers.get("origin", "*")
+    return JSONResponse(
+        status_code=500,
+        content={"detail": f"Internal Server Error: {str(exc)}"},
+        headers={"Access-Control-Allow-Origin": origin, "Access-Control-Allow-Credentials": "true"}
+    )
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
