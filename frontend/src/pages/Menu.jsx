@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
 import { SocketContext } from '../context/SocketContext';
+import { ITEM_IMAGES } from '../menu_images';
 
 // Map category name → emoji (used for category filter pills)
 const CAT_EMOJI = {
@@ -27,11 +28,12 @@ const CATEGORY_IMAGES = {
 /**
  * Returns the best image URL for a menu item:
  *   1. item.image (if the DB has a custom image stored)
- *   2. CATEGORY_IMAGES[item.category] (category fallback)
- *   3. CATEGORY_IMAGES.DEFAULT (generic food image, always works)
+ *   2. ITEM_IMAGES[item.item_name] (exact mapped food photo)
+ *   3. CATEGORY_IMAGES[item.category] (category fallback)
+ *   4. CATEGORY_IMAGES.DEFAULT (generic food image, always works)
  */
 const getImage = (item) =>
-  item.image || CATEGORY_IMAGES[item.category] || CATEGORY_IMAGES.DEFAULT;
+  item.image || ITEM_IMAGES[item.item_name] || CATEGORY_IMAGES[item.category] || CATEGORY_IMAGES.DEFAULT;
 
 function Menu() {
   const [items, setItems]       = useState([]);
