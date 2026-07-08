@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { SocketContext } from '../context/SocketContext';
+import logoImg from '../assets/logo.png';
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -37,7 +38,7 @@ function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 text-orange-500 font-extrabold text-xl">
-            🍽️ <span>Smart Canteen</span>
+            <img src={logoImg} alt="Smart Canteen Logo" className="w-8 h-8 rounded-full object-cover shadow-sm" /> <span>Smart Canteen</span>
           </Link>
 
           {/* Desktop links */}
