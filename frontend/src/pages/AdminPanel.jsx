@@ -28,6 +28,7 @@ function AdminPanel() {
   const [formLoading, setFormLoading] = useState(false);
 
   const loadAll = async () => {
+    setLoading(true);
     try {
       const [ordersRes, menuRes, statsRes] = await Promise.all([
         api.get('/orders/active'),
