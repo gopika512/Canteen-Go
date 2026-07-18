@@ -1,42 +1,56 @@
+import dosaImg from './assets/food_masala_dosa_1784384818219.png';
+import idliImg from './assets/food_idli_1784384828064.png';
+import pooriImg from './assets/food_poori_1784384839719.png';
+import cBiryaniImg from './assets/food_chicken_biryani_1784384849771.png';
+import vBiryaniImg from './assets/food_veg_biryani_1784384863774.png';
+import mealsImg from './assets/food_meals_1784384934314.png';
+import samosaImg from './assets/food_samosa_1784384944832.png';
+import vadaImg from './assets/food_vada_1784384956233.png';
+
 export const ITEM_IMAGES = {
-  "Masala Dosa": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Rameshwaram_Cafe_Dosa.jpg/500px-Rameshwaram_Cafe_Dosa.jpg",
-  "Idli": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Idli_Sambar.JPG/500px-Idli_Sambar.JPG",
-  "Poori": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Fluffy_Poori_%28cropped%29.JPG/500px-Fluffy_Poori_%28cropped%29.JPG",
-  "Chicken Biryani": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/%22Hyderabadi_Dum_Biryani%22.jpg/500px-%22Hyderabadi_Dum_Biryani%22.jpg",
-  "Veg Biryani": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Hyderabadi_Chicken_Biryani.jpg/500px-Hyderabadi_Chicken_Biryani.jpg",
-  "Meals": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/DO_%26_CO_Catering_-_8968355090.jpg/500px-DO_%26_CO_Catering_-_8968355090.jpg",
-  "Samosa": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Samosas%2C_snack_food_at_Wikipedia%27s_16th_Birthday_celebration_in_Chittagong_%2801%29.jpg/500px-Samosas%2C_snack_food_at_Wikipedia%27s_16th_Birthday_celebration_in_Chittagong_%2801%29.jpg",
-  "Vada": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Medu_Vadas.JPG/500px-Medu_Vadas.JPG",
+  // Ultra HD AI Generated
+  "Masala Dosa": dosaImg,
+  "Idli": idliImg,
+  "Poori": pooriImg,
+  "Chicken Biryani": cBiryaniImg,
+  "Veg Biryani": vBiryaniImg,
+  "Meals": mealsImg,
+  "Samosa": samosaImg,
+  "Vada": vadaImg,
+
+  // Foodish API (Real Professional Food Photography)
+  "Dosa": "https://foodish-api.com/images/dosa/dosa2.jpg",
+  "Mutton Biryani": "https://foodish-api.com/images/biryani/biryani2.jpg",
+  "Veg Fried Rice": "https://foodish-api.com/images/rice/rice1.jpg",
+  "Fried Rice": "https://foodish-api.com/images/rice/rice2.jpg",
+  "Veg Burger": "https://foodish-api.com/images/burger/burger1.jpg",
+  "Chicken Burger": "https://foodish-api.com/images/burger/burger2.jpg",
+  "Veg Pizza": "https://foodish-api.com/images/pizza/pizza1.jpg",
+  "Chicken Curry": "https://foodish-api.com/images/butter-chicken/butter-chicken1.jpg",
+  "Paneer Butter Masala": "https://foodish-api.com/images/butter-chicken/butter-chicken2.jpg",
+  "Egg Curry": "https://foodish-api.com/images/butter-chicken/butter-chicken3.jpg",
+  "Veg Pulao": "https://foodish-api.com/images/rice/rice3.jpg",
+  "Chicken 65": "https://foodish-api.com/images/butter-chicken/butter-chicken4.jpg",
+  
+  // Handpicked High Quality Wikimedia Commons
   "Bread Omelette": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Gorgonzola_%2B_Bacon_Omelette_%40_Omelegg_%40_Amsterdam_%2816600947041%29.jpg/500px-Gorgonzola_%2B_Bacon_Omelette_%40_Omelegg_%40_Amsterdam_%2816600947041%29.jpg",
   "Tea": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Longjing_tea_steeping_in_gaiwan.jpg/500px-Longjing_tea_steeping_in_gaiwan.jpg",
   "Coffee": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Latte_and_dark_coffee.jpg/500px-Latte_and_dark_coffee.jpg",
   "Fresh Juice": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Orangejuice.jpg/500px-Orangejuice.jpg",
-  "Fried Rice": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Koh_Mak%2C_Thailand%2C_Fried_rice_with_seafood%2C_Thai_fried_rice.jpg/500px-Koh_Mak%2C_Thailand%2C_Fried_rice_with_seafood%2C_Thai_fried_rice.jpg",
   "French Fries": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/French_Fries.JPG/500px-French_Fries.JPG",
   "Cold Drinks": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ice_Milk_and_Lemon_Teas_-_Chilli_Cafe.jpg/500px-Ice_Milk_and_Lemon_Teas_-_Chilli_Cafe.jpg",
-  "Dosa": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Dosa_at_Sri_Ganesha_Restauran%2C_Bangkok_%2844570742744%29.jpg/500px-Dosa_at_Sri_Ganesha_Restauran%2C_Bangkok_%2844570742744%29.jpg",
   "Pongal": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pongal_fest.jpg/500px-Pongal_fest.jpg",
   "Upma": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/A_photo_of_Upma.jpg/500px-A_photo_of_Upma.jpg",
-  "Chicken Curry": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Chicken_Makhani_and_Rice.jpg/500px-Chicken_Makhani_and_Rice.jpg",
-  "Paneer Butter Masala": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Shahi_panner.jpg/500px-Shahi_panner.jpg",
-  "Veg Pulao": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Afghan_Palo.jpg/500px-Afghan_Palo.jpg",
-  "Chicken 65": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Chicken_65_Dish.jpg/500px-Chicken_65_Dish.jpg",
-  "Mutton Biryani": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/%22Hyderabadi_Dum_Biryani%22.jpg/500px-%22Hyderabadi_Dum_Biryani%22.jpg",
   "Veg Sandwich": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/500px-RedDot_Burger.jpg",
   "Chicken Sandwich": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Chicken_salad_sandwich_01.jpg/500px-Chicken_salad_sandwich_01.jpg",
   "Mango Lassi": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Salt_lassi.jpg/500px-Salt_lassi.jpg",
   "Masala Chai": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Chai_In_Sakora.jpg/500px-Chai_In_Sakora.jpg",
   "Veg Cutlet": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Lamb-stew.jpg/500px-Lamb-stew.jpg",
   "Chicken Cutlet": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Chicken_cutlet.jpg/500px-Chicken_cutlet.jpg",
-  "Egg Curry": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Chicken_raw_egg_with_broken_shell.jpg/500px-Chicken_raw_egg_with_broken_shell.jpg",
-  "Veg Fried Rice": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Chicken_Manchurian_%28Hyderabad_Style%29_%2811960049916%29.jpg/500px-Chicken_Manchurian_%28Hyderabad_Style%29_%2811960049916%29.jpg",
   "Chicken Noodles": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Chicken_Noodle_Soup.jpg/500px-Chicken_Noodle_Soup.jpg",
   "Veg Noodles": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Vittal._Town_Kitchen.jpg/500px-Vittal._Town_Kitchen.jpg",
   "Paneer Tikka": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Paneer_tikka.jpg/500px-Paneer_tikka.jpg",
   "Chicken Tikka": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Chicken_tikka_masala_%28cropped%29.jpg/500px-Chicken_tikka_masala_%28cropped%29.jpg",
-  "Veg Burger": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8_%D7%98%D7%91%D7%A2%D7%95%D7%A0%D7%99.jpg/500px-%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8_%D7%98%D7%91%D7%A2%D7%95%D7%A0%D7%99.jpg",
-  "Chicken Burger": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Chicken_salad_sandwich_01.jpg/500px-Chicken_salad_sandwich_01.jpg",
-  "Veg Pizza": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/500px-Eq_it-na_pizza-margherita_sep2005_sml.jpg",
   "Parotta": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Malabar_Porotta_%28cropped%29.jpg/500px-Malabar_Porotta_%28cropped%29.jpg",
   "Watermelon Juice": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg/500px-Taiwan_2009_Tainan_City_Organic_Farm_Watermelon_FRD_7962.jpg",
   "Lemonade": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Lemonade_-_27682817724.jpg/500px-Lemonade_-_27682817724.jpg",
