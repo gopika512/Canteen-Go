@@ -10,13 +10,13 @@ import vadaImg from './assets/food_vada_1784384956233.png';
 export const ITEM_IMAGES = {
   // Ultra HD AI Generated
   "Masala Dosa": dosaImg,
-  "Idli": idliImg,
-  "Poori": pooriImg,
+  "Idli (2 pcs)": idliImg,
+  "Poori (2 pcs)": pooriImg,
   "Chicken Biryani": cBiryaniImg,
   "Veg Biryani": vBiryaniImg,
-  "Meals": mealsImg,
-  "Samosa": samosaImg,
-  "Vada": vadaImg,
+  "Meals (Full)": mealsImg,
+  "Samosa (2 pcs)": samosaImg,
+  "Vada (2 pcs)": vadaImg,
 
   // Foodish API (Real Professional Food Photography)
   "Dosa": "https://foodish-api.com/images/dosa/dosa2.jpg",
